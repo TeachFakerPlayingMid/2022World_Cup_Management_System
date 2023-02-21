@@ -9,4 +9,27 @@ CONNECT TO cs421;
 
 -- This is only an example of how you add drop table ddls to this file.
 --   You may remove it.
-DROP TABLE MYTEST01;
+
+DROP TABLE Payment;
+DROP TABLE Customers;
+DROP TABLE Tickets;
+DROP TABLE Stadium;
+DROP TABLE MatchGoals;
+DROP TABLE Referees_assign;
+DROP TABLE Referees;
+DROP TABLE Match_player;
+DROP TABLE Coach;
+DROP TABLE Player;
+DROP TABLE Match;
+DROP TABLE Team;
+
+
+
+
+
+
+
+
+
+
+
