@@ -9,12 +9,7 @@ CONNECT TO cs421;
 
 -- This is only an example of how you add create table ddls to this file.
 --   You may remove it.
-CREATE TABLE MYTEST01
-(
-  id INTEGER NOT NULL
- ,value INTEGER
- ,PRIMARY KEY(id)
-);
+
 
 CREATE TABLE Team
 (
@@ -34,7 +29,7 @@ CREATE TABLE Player
     general_position VARCHAR(10) NOT NULL,
     country VARCHAR(30) NOT NULL,
     FOREIGN KEY(country) REFERENCES Team(country)
-)
+);
 
 CREATE TABLE Coach
 (
@@ -44,7 +39,7 @@ CREATE TABLE Coach
     role VARCHAR(30),
     country VARCHAR(30) NOT NULL,
     FOREIGN KEY(country) REFERENCES Team(country)
-)
+);
 
 CREATE TABLE Match
 (
@@ -59,7 +54,7 @@ CREATE TABLE Match
     match_name VARCHAR(50),
     stadium VARCHAR(50),
     FOREIGN KEY (stadium) REFERENCES Stadium(name)
-)
+);
 
 CREATE TABLE Referees
 (
@@ -68,7 +63,7 @@ CREATE TABLE Referees
     name VARCHAR(30) NOT NULL ,
     year_of_experience INTEGER NOT NULL ,
     country VARCHAR(30) NOT NULL ,
-)
+);
 
 CREATE TABLE Referees_assign
 (
@@ -78,7 +73,7 @@ CREATE TABLE Referees_assign
     role VARCHAR(30) NOT NULL ,
     FOREIGN KEY(identidier) REFERENCES Match(identidier),
     FOREIGN KEY(rid) REFERENCES Referees(rid)
-)
+);
 
 CREATE TABLE MatchGoals
 (
@@ -88,7 +83,7 @@ CREATE TABLE MatchGoals
     occurred_time VARCHAR(10) NOT NULL ,
     whether_penalty BOOLEAN NOT NULL,
     FOREIGN KEY (identidier) REFERENCES Match(identidier)
-)
+);
 
 CREATE TABLE Stadium
 (
@@ -98,7 +93,7 @@ CREATE TABLE Stadium
     entrance_info VARCHAR(50),
     capacity INTEGER NOT NULL ,
     parking_info VARCHAR(50)
-)
+);
 
 CREATE TABLE Tickets
 (
@@ -108,5 +103,36 @@ CREATE TABLE Tickets
     seat_location VARCHAR(50) NOT NULL ,
     ticket_category INTEGER NOT NULL ,
     ticket_type VARCHAR(10) NOT NULL ,
+    identidier INTEGER NOT NULL ,
+    FOREIGN KEY (identidier) REFERENCES Match (identidier)
+);
 
-)
+CREATE TABLE Customer
+(
+    customer_num INTEGER NOT NULL ,
+    PRIMARY KEY (customer_num),
+    name VARCHAR(30) NOT NULL ,
+    password VARCHAR(15) NOT NULL ,
+    pronoun VARCHAR(10) NOT NULL ,
+    sCart_subtotal FLOAT NOT NULL ,
+    ticket_quantity_in_sCart INTEGER NOT NULL ,
+    preferred_language VARCHAR(30) NOT NULL ,
+    nationality VARCHAR(30) NOT NULL ,
+    live_location VARCHAR(50) NOT NULL ,
+    DOB DATE NOT NULL ,
+    address VARCHAR(50) NOT NULL ,
+    Eaddress VARCHAR(30) NOT NULL ,
+    card_num INTEGER NOT NULL ,
+    FOREIGN KEY (card_num) REFERENCES PaymentMethod(card_num)
+);
+
+CREATE TABLE Payment
+(
+    card_num INTEGER NOT NULL ,
+    PRIMARY KEY (card_num),
+    customer_num INTEGER NOT NULL ,
+    card_type VARCHAR(10) NOT NULL ,
+    security_code INTEGER NOT NULL,
+    expiration_data DATE NOT NULL ,
+    FOREIGN KEY (customer_num) REFERENCES Customer(customer_num)
+);
