@@ -179,23 +179,16 @@ VALUES
     (111112002, 80.00, 'West Stand, Row D, Seat 8', 2, 'Child', 10002),
     (111112003, 250.00, 'East Stand, Row F, Seat 12', 1, 'VIP', 10002);
 
-INSERT INTO Customer (customer_num, name, password, pronoun, sCart_subtotal, ticket_quantity_in_sCart, preferred_language, nationality, live_location, DOB, address, Eaddress, card_num)
+INSERT INTO Customer (customer_num, name, password, pronoun, sCart_subtotal, ticket_quantity_in_sCart, preferred_language, nationality, live_location, DOB, address, Eaddress, card_num,card_type,security_code,expiration_data)
 VALUES
-    (888001, 'John Smith', 'password123', 'he/him', 250.00, 2, 'English', 'American', 'New York', '1990-01-01', '123 Main St', 'john.smith@email.com', 1234567890123456),
-    (888002, 'Jane Doe', 'password456', 'she/her', 150.00, 1, 'English', 'Canadian', 'Toronto', '1985-05-05', '456 Maple St', 'jane.doe@email.com', 2345678901234567),
-    (888022, 'Ahmed Ali', 'password789', 'he/him', 300.00, 3, 'Arabic', 'Qatari', 'Doha', '1995-07-01', '789 Oak St', 'ahmed.ali@email.com', 3456789012345678),
-    (888004, 'Maria Garcia', 'passwordabc', 'she/her', 200.00, 2, 'Spanish', 'Mexican', 'Mexico City', '1992-03-15', '234 Elm St', 'maria.garcia@email.com', 4567890123456789),
-    (888005, 'Alex Kim', 'passworddef', 'he/him', 150.00, 1, 'Korean', 'Korean', 'Seoul', '1998-11-11', '567 Pine St', 'alex.kim@email.com', 5678901234567890),
-    (888006, 'Fatima Ahmed', 'passwordeg', 'she/her', 400.00, 4, 'Arabic', 'Qatari', 'Doha', '1993-08-20', '789 Maple St', 'fatima.ahmed@email.com', 6789012345678901);
+    (888001, 'John Smith', 'password123', 'he/him', 250.00, 2, 'English', 'American', 'New York', '1990-01-01', '123 Main St', 'john.smith@email.com', 1234567890123456,'Visa',123,'2025-06-30'),
+    (888002, 'Jane Doe', 'password456', 'she/her', 150.00, 1, 'English', 'Canadian', 'Toronto', '1985-05-05', '456 Maple St', 'jane.doe@email.com', 2345678901234567,'Visa',456,'2024-05-31'),
+    (888022, 'Ahmed Ali', 'password789', 'he/him', 300.00, 3, 'Arabic', 'Qatari', 'Doha', '1995-07-01', '789 Oak St', 'ahmed.ali@email.com', 3456789012345678,'Visa',789,'2023-04-30'),
+    (888004, 'Maria Garcia', 'passwordabc', 'she/her', 200.00, 2, 'Spanish', 'Mexican', 'Mexico City', '1992-03-15', '234 Elm St', 'maria.garcia@email.com', 4567890123456789,'Mastercard',234,'2025-03-31'),
+    (888005, 'Alex Kim', 'passworddef', 'he/him', 150.00, 1, 'Korean', 'Korean', 'Seoul', '1998-11-11', '567 Pine St', 'alex.kim@email.com', 5678901234567890,'Mastercard',567,'2022-02-28'),
+    (888006, 'Fatima Ahmed', 'passwordeg', 'she/her', 400.00, 4, 'Arabic', 'Qatari', 'Doha', '1993-08-20', '789 Maple St', 'fatima.ahmed@email.com', 6789012345678901,'Mastercard',890,'2024-01-31');
 
-INSERT INTO Payment (card_num, customer_num, card_type, security_code, expiration_data)
-VALUES
-    (1234567890123456, 888001, 'Visa', 123, '2025-06-30'),
-    (2345678901234567, 888002, 'Mastercard', 456, '2024-05-31'),
-    (3456789012345678, 888022, 'Visa', 789, '2023-04-30'),
-    (4567890123456789, 888004, 'Mastercard', 234, '2025-03-31'),
-    (5678901234567890, 888005, 'Visa', 567, '2022-02-28'),
-    (6789012345678901, 888006, 'Mastercard', 890, '2024-01-31');
+
 
 
 
