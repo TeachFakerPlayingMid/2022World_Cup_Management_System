@@ -56,5 +56,57 @@ CREATE TABLE Match
     extra_program VARCHAR(30),
     "availiability" INTEGER,
     match_length INTEGER NOT NULL ,
-    match_name VARCHAR(50)
+    match_name VARCHAR(50),
+    stadium VARCHAR(50),
+    FOREIGN KEY (stadium) REFERENCES Stadium(name)
+)
+
+CREATE TABLE Referees
+(
+    rid INTEGER NOT NULL ,
+    PRIMARY KEY (rid),
+    name VARCHAR(30) NOT NULL ,
+    year_of_experience INTEGER NOT NULL ,
+    country VARCHAR(30) NOT NULL ,
+)
+
+CREATE TABLE Referees_assign
+(
+    identidier INTEGER NOT NULL ,
+    PRIMARY KEY (identidier),
+    rid INTEGER NOT NULL ,
+    role VARCHAR(30) NOT NULL ,
+    FOREIGN KEY(identidier) REFERENCES Match(identidier),
+    FOREIGN KEY(rid) REFERENCES Referees(rid)
+)
+
+CREATE TABLE MatchGoals
+(
+    occurrence INTEGER NOT NULL ,
+    identidier INTEGER NOT NULL ,
+    PRIMARY KEY (identidier,occurrence),
+    occurred_time VARCHAR(10) NOT NULL ,
+    whether_penalty BOOLEAN NOT NULL,
+    FOREIGN KEY (identidier) REFERENCES Match(identidier)
+)
+
+CREATE TABLE Stadium
+(
+    name VARCHAR(50) NOT NULL ,
+    PRIMARY KEY (name),
+    location VARCHAR(50) NOT NULL,
+    entrance_info VARCHAR(50),
+    capacity INTEGER NOT NULL ,
+    parking_info VARCHAR(50)
+)
+
+CREATE TABLE Tickets
+(
+    tid INTEGER NOT NULL ,
+    PRIMARY KEY (tid),
+    price FLOAT NOT NULL ,
+    seat_location VARCHAR(50) NOT NULL ,
+    ticket_category INTEGER NOT NULL ,
+    ticket_type VARCHAR(10) NOT NULL ,
+
 )
