@@ -101,6 +101,14 @@ VALUES (60000001, 'Didier Deschamps', 'Head Coach', 'France'),
        (60000003, 'Franck Raviot', 'Goalkeeper Coach', 'France'),
        (60000004, 'Patrick Gonfalone', 'Fitness Coach', 'France');
 
+INSERT INTO Stadium (name, location, entrance_info, capacity, parking_info)
+VALUES
+    ('Khalifa International Stadium', 'Al Rayyan, Qatar', 'Gate 1 and 2', 40000, 'On-site parking available'),
+    ('Education City Stadium', 'Al Rayyan, Qatar', 'Gate 1 and 2', 40000, 'On-site parking available'),
+    ('Al-Rayyan Stadium', 'Al Wakrah, Qatar', 'Gate 1 and 2', 40000, 'On-site parking available'),
+    ('Al-Wakrah Stadium', 'Al Wakrah, Qatar', 'Gate 1 and 2', 60000, 'On-site parking available'),
+    ('Lusail Iconic Stadium', 'Lusail, Qatar', 'Gate 1 and 2', 80000, 'On-site parking available');
+
 INSERT INTO Match (identidier, date, time, round, extra_program, availability, match_length, match_name, stadium)
 VALUES
     (10001, '2023-06-01', '16:00:00', 'Group Round 1', NULL, 5000, 90, 'France vs Argentina', 'Al-Rayyan Stadium'),
@@ -118,16 +126,16 @@ VALUES
 
 INSERT INTO Match_Player (pid, identidier, attendance, entered_time, left_time, detailed_position_in_game, yellow_card_number, red_card_number)
 VALUES
-    (1010001, 10001, TRUE, '45:00', '90:00', 'Forward', 1, 0),
-    (1010002, 10001, TRUE, '60:00', '90:00', 'Midfield', 0, 0),
-    (1010004, 10002, TRUE, '0:00', '75:00', 'Defender', 0, 0),
+    (1010001, 10001, TRUE, '00:45:00', '01:30:00', 'Forward', 1, 0),
+    (1010002, 10001, TRUE, '00:45:00', '01:30:00', 'Midfield', 0, 0),
+    (1010004, 10002, TRUE, '00:00:00', '01:15:00', 'Defender', 0, 0),
     (1020001, 10002, FALSE, NULL, NULL, NULL, 0, 0),
-    (1020004, 10003, TRUE, '30:00', '70:00', 'Goalkeeper', 0, 0),
-    (1030001, 10003, TRUE, '75:00', '90:00', 'Midfield', 1, 0),
+    (1020004, 10003, TRUE, '00:30:00', '01:10:00', 'Goalkeeper', 0, 0),
+    (1030001, 10003, TRUE, '01:15:00', '01:30:00', 'Midfield', 1, 0),
     (1030003, 10007, FALSE, NULL, NULL, NULL, 0, 0),
-    (1030004, 10007, TRUE, '70:00', '90:00', 'Forward', 0, 0),
-    (9000012, 10008, TRUE, '0:00', '90:00', 'Midfield', 0, 0),
-    (9000013, 10008, TRUE, '45:00', '90:00', 'Defender', 0, 0);
+    (1030004, 10007, TRUE, '01:10:00', '01:30:00', 'Forward', 0, 0),
+    (9000012, 10008, TRUE, '00:00:00', '01:30:00', 'Midfield', 0, 0),
+    (9000013, 10008, TRUE, '00:45:00', '01:30:00', 'Defender', 0, 0);
 
 INSERT INTO Referees (rid, name, year_of_experience, country)
 VALUES
@@ -150,25 +158,18 @@ VALUES
     (10003, 1004, 'Video Assistant Referee'),
     (10003, 1005, 'Assistant Video Assistant Referee');
 
-INSERT INTO Stadium (name, location, entrance_info, capacity, parking_info)
-VALUES
-    ('Education City Stadium', 'Al Rayyan, Qatar', 'Gate 1 and 2', 40000, 'On-site parking available'),
-    ('Education City Stadium', 'Al Rayyan, Qatar', 'Gate 1 and 2', 40000, 'On-site parking available'),
-    ('Al-Rayyan Stadium', 'Al Wakrah, Qatar', 'Gate 1 and 2', 40000, 'On-site parking available'),
-    ('Al-Rayyan Stadium', 'Al Wakrah, Qatar', 'Gate 1 and 2', 60000, 'On-site parking available'),
-    ('Lusail Iconic Stadium', 'Lusail, Qatar', 'Gate 1 and 2', 80000, 'On-site parking available');
 
 INSERT INTO MatchGoals (occurrence, identidier, occurred_time,who_scored, whether_penalty)
 VALUES
-    (1, 10001, '30:00',9000012 ,FALSE),
-    (2, 10001, '45:00',9000012 ,FALSE),
-    (1, 10002, '15:00',1040001 ,TRUE),
-    (1, 10003, '19:23',1030003 ,FALSE),
-    (1, 10009, '19:33',1010001 ,FALSE),
-    (1, 10011, '19:10',1040004,TRUE),
-    (1, 10013, '19:30',9000013 ,FALSE),
-    (1, 10015, '19:01',9000013 ,FALSE),
-    (2, 10015, '20:15',9000012 ,TRUE);
+    (1, 10001, '00:30:00',9000012 ,FALSE),
+    (2, 10001, '00:45:00',9000012 ,FALSE),
+    (1, 10002, '00:15:00',1040001 ,TRUE),
+    (1, 10003, '00:19:23',1030003 ,FALSE),
+    (1, 10009, '00:19:33',1010001 ,FALSE),
+    (1, 10011, '00:19:10',1040004,TRUE),
+    (1, 10013, '00:19:30',9000013 ,FALSE),
+    (1, 10015, '00:19:01',9000013 ,FALSE),
+    (2, 10015, '00:20:15',9000012 ,TRUE);
 
 INSERT INTO Tickets (tid, price, seat_location, ticket_category, ticket_type, identidier)
 VALUES
@@ -181,12 +182,12 @@ VALUES
 
 INSERT INTO Customer (customer_num, name, password, pronoun, sCart_subtotal, ticket_quantity_in_sCart, preferred_language, nationality, live_location, DOB, address, Eaddress, card_num,card_type,security_code,expiration_data)
 VALUES
-    (888001, 'John Smith', 'password123', 'he/him', 250.00, 2, 'English', 'American', 'New York', '1990-01-01', '123 Main St', 'john.smith@email.com', 1234567890123456,'Visa',123,'2025-06-30'),
-    (888002, 'Jane Doe', 'password456', 'she/her', 150.00, 1, 'English', 'Canadian', 'Toronto', '1985-05-05', '456 Maple St', 'jane.doe@email.com', 2345678901234567,'Visa',456,'2024-05-31'),
-    (888022, 'Ahmed Ali', 'password789', 'he/him', 300.00, 3, 'Arabic', 'Qatari', 'Doha', '1995-07-01', '789 Oak St', 'ahmed.ali@email.com', 3456789012345678,'Visa',789,'2023-04-30'),
-    (888004, 'Maria Garcia', 'passwordabc', 'she/her', 200.00, 2, 'Spanish', 'Mexican', 'Mexico City', '1992-03-15', '234 Elm St', 'maria.garcia@email.com', 4567890123456789,'Mastercard',234,'2025-03-31'),
-    (888005, 'Alex Kim', 'passworddef', 'he/him', 150.00, 1, 'Korean', 'Korean', 'Seoul', '1998-11-11', '567 Pine St', 'alex.kim@email.com', 5678901234567890,'Mastercard',567,'2022-02-28'),
-    (888006, 'Fatima Ahmed', 'passwordeg', 'she/her', 400.00, 4, 'Arabic', 'Qatari', 'Doha', '1993-08-20', '789 Maple St', 'fatima.ahmed@email.com', 6789012345678901,'Mastercard',890,'2024-01-31');
+    (888001, 'John Smith', 'password123', 'he/him', 250.00, 2, 'English', 'American', 'New York', '1990-01-01', '123 Main St', 'john.smith@email.com', '1234567890123456','Visa',123,'2025-06-30'),
+    (888002, 'Jane Doe', 'password456', 'she/her', 150.00, 1, 'English', 'Canadian', 'Toronto', '1985-05-05', '456 Maple St', 'jane.doe@email.com', '2345678901234567','Visa',456,'2024-05-31'),
+    (888022, 'Ahmed Ali', 'password789', 'he/him', 300.00, 3, 'Arabic', 'Qatari', 'Doha', '1995-07-01', '789 Oak St', 'ahmed.ali@email.com', '3456789012345678','Visa',789,'2023-04-30'),
+    (888004, 'Maria Garcia', 'passwordabc', 'she/her', 200.00, 2, 'Spanish', 'Mexican', 'Mexico City', '1992-03-15', '234 Elm St', 'maria.garcia@email.com', '4567890123456789','Mastercard',234,'2025-03-31'),
+    (888005, 'Alex Kim', 'passworddef', 'he/him', 150.00, 1, 'Korean', 'Korean', 'Seoul', '1998-11-11', '567 Pine St', 'alex.kim@email.com', '5678901234567890','Mastercard',567,'2022-02-28'),
+    (888006, 'Fatima Ahmed', 'passwordeg', 'she/her', 400.00, 4, 'Arabic', 'Qatari', 'Doha', '1993-08-20', '789 Maple St', 'fatima.ahmed@email.com', '6789012345678901','Mastercard',890,'2024-01-31');
 
 
 

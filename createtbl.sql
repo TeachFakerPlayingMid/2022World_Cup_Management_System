@@ -2,7 +2,7 @@
 -- Make sure to terminate each statement with a semicolon (;)
 
 -- LEAVE this statement on. It is required to connect to your database.
---CONNECT TO cs421;
+CONNECT TO cs421;
 
 -- Remember to put the create table ddls for the tables with foreign key references
 --    ONLY AFTER the parent tables has already been created.
@@ -58,7 +58,7 @@ CREATE TABLE Match
     PRIMARY KEY (identidier),
     date DATE NOT NULL ,
     time TIME NOT NULL ,
-    round VARCHAR(10),
+    round VARCHAR(30),
     extra_program VARCHAR(30),
     availability INTEGER,
     match_length INTEGER NOT NULL ,
@@ -73,8 +73,8 @@ CREATE TABLE Match_Player
     identidier INTEGER NOT NULL ,
     PRIMARY KEY (pid,identidier),
     attendance BOOLEAN NOT NULL ,
-    entered_time VARCHAR(10)  ,
-    left_time VARCHAR(10)  ,
+    entered_time TIME  ,
+    left_time TIME  ,
     detailed_position_in_game VARCHAR(10) ,
     yellow_card_number INTEGER NOT NULL ,
     red_card_number INTEGER NOT NULL ,
@@ -94,9 +94,9 @@ CREATE TABLE Referees
 CREATE TABLE Referees_assign
 (
     identidier INTEGER NOT NULL ,
-    PRIMARY KEY (identidier),
     rid INTEGER NOT NULL ,
-    role VARCHAR(30) NOT NULL ,
+    PRIMARY KEY (rid,identidier),
+    role VARCHAR(50) NOT NULL ,
     FOREIGN KEY(identidier) REFERENCES Match(identidier),
     FOREIGN KEY(rid) REFERENCES Referees(rid)
 );
@@ -106,7 +106,7 @@ CREATE TABLE MatchGoals
     occurrence INTEGER NOT NULL ,
     identidier INTEGER NOT NULL ,
     PRIMARY KEY (identidier,occurrence),
-    occurred_time VARCHAR(10) NOT NULL ,
+    occurred_time TIME NOT NULL ,
     who_scored INTEGER NOT NULL ,
     FOREIGN KEY (who_scored) REFERENCES Player(pid),
     whether_penalty BOOLEAN NOT NULL,
@@ -125,16 +125,6 @@ CREATE TABLE Tickets
     FOREIGN KEY (identidier) REFERENCES Match (identidier)
 );
 
-CREATE TABLE Payment
-(
-    card_num INTEGER NOT NULL ,
-    PRIMARY KEY (card_num),
-    customer_num INTEGER NOT NULL ,
-    card_type VARCHAR(10) NOT NULL ,
-    security_code INTEGER NOT NULL,
-    expiration_data DATE NOT NULL
-    --FOREIGN KEY (customer_num) REFERENCES Customer(customer_num)
-);
 
 CREATE TABLE Customer
 (
@@ -151,7 +141,7 @@ CREATE TABLE Customer
     DOB DATE NOT NULL ,
     address VARCHAR(50) NOT NULL ,
     Eaddress VARCHAR(30) NOT NULL ,
-    card_num INTEGER ,
+    card_num VARCHAR(50) ,
     card_type VARCHAR(10) ,
     security_code INTEGER,
     expiration_data DATE
