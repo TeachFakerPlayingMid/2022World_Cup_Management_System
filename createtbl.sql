@@ -64,7 +64,9 @@ CREATE TABLE Match
     match_length INTEGER NOT NULL ,
     match_name VARCHAR(50),
     stadium VARCHAR(50),
-    FOREIGN KEY (stadium) REFERENCES Stadium(name)
+    FOREIGN KEY (stadium) REFERENCES Stadium(name),
+    h_name VARCHAR(30) NOT NULL ,
+    v_name VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE Match_Player

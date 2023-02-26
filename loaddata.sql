@@ -10,7 +10,7 @@ CONNECT TO cs421;
 -- This is only an example of how you add INSERT statements to this file.
 --   You may remove it.
 INSERT INTO Team (country, national_association, url, group) VALUES
-('Argentina', 'Argentine Football Association', 'http://www.afa.org.ar/', 'C'),
+('Argentina', 'Argentine Football Association', 'http://www.afa.org.ar/', 'A'),
 ('Brazil', 'Brazilian Football Confederation', 'https://www.cbf.com.br/', 'G'),
 ('Germany', 'German Football Association', 'https://www.dfb.de/', 'E'),
 ('England', 'The Football Association', 'http://www.thefa.com/', 'B'),
@@ -109,20 +109,20 @@ VALUES
     ('Al-Wakrah Stadium', 'Al Wakrah, Qatar', 'Gate 1 and 2', 60000, 'On-site parking available'),
     ('Lusail Iconic Stadium', 'Lusail, Qatar', 'Gate 1 and 2', 80000, 'On-site parking available');
 
-INSERT INTO Match (identidier, date, time, round, extra_program, availability, match_length, match_name, stadium)
+INSERT INTO Match (identidier, date, time, round, extra_program, availability, match_length, match_name, stadium,h_name,v_name)
 VALUES
-    (10001, '2023-06-01', '16:00:00', 'Group Round 1', NULL, 5000, 90, 'France vs Argentina', 'Al-Rayyan Stadium'),
-    (10002, '2023-06-02', '16:00:00', 'Group Round 2', NULL, 7500, 90, 'England vs Brazil', 'Al-Wakrah Stadium'),
-    (10003, '2023-06-03', '16:00:00', 'Group Round 3', NULL, 6000, 90, 'Spain vs Germany', 'Education City Stadium'),
-    (10007, '2023-06-07', '16:00:00', 'Round of 16', NULL, 8000, 90, 'France vs England', 'Lusail Iconic Stadium'),
-    (10008, '2023-06-08', '16:00:00', 'Round of 16', NULL, 6500, 90, 'Brazil vs Germany', 'Al-Rayyan Stadium'),
-    (10009, '2023-06-09', '16:00:00', 'Round of 16', NULL, 5000, 90, 'Argentina vs Spain', 'Al-Wakrah Stadium'),
-    (10010, '2023-06-10', '16:00:00', 'Round of 16', NULL, 4500, 90, 'France vs Brazil', 'Education City Stadium'),
-    (10011, '2023-06-11', '16:00:00', 'Quarterfinals', NULL, 7000, 90, 'Spain vs England', 'Lusail Iconic Stadium'),
-    (10012, '2023-06-12', '16:00:00', 'Quarterfinals', NULL, 5500, 90, 'Germany vs Argentina', 'Al-Rayyan Stadium'),
-    (10013, '2023-06-13', '16:00:00', 'Semifinals', NULL, 9000, 90, 'France vs Spain', 'Lusail Iconic Stadium'),
-    (10014, '2023-06-14', '16:00:00', 'Semifinals', NULL, 8000, 90, 'Brazil vs Germany', 'Education City Stadium'),
-    (10015, '2023-06-15', '16:00:00', 'Final', NULL, 1000, 90, 'France vs Brazil', 'Lusail Iconic Stadium');
+    (10001, '2023-06-01', '16:00:00', 'Group Round 1', NULL, 5000, 90, 'France vs Argentina', 'Al-Rayyan Stadium','France','Argentina'),
+    (10002, '2023-06-02', '16:00:00', 'Group Round 2', NULL, 7500, 90, 'England vs Brazil', 'Al-Wakrah Stadium','England','Brazil'),
+    (10003, '2023-06-03', '16:00:00', 'Group Round 3', NULL, 6000, 90, 'Spain vs Germany', 'Education City Stadium','Spain','Germany'),
+    (10007, '2023-06-07', '16:00:00', 'Round of 16', NULL, 8000, 90, 'France vs England', 'Lusail Iconic Stadium','France','England'),
+    (10008, '2023-06-08', '16:00:00', 'Round of 16', NULL, 6500, 90, 'Brazil vs Germany', 'Al-Rayyan Stadium','Brazil','Germany'),
+    (10009, '2023-06-09', '16:00:00', 'Round of 16', NULL, 5000, 90, 'Argentina vs Spain', 'Al-Wakrah Stadium','Argentina','Spain'),
+    (10010, '2023-06-10', '16:00:00', 'Round of 16', NULL, 4500, 90, 'France vs Brazil', 'Education City Stadium','France','Brazil'),
+    (10011, '2023-06-11', '16:00:00', 'Quarterfinals', NULL, 7000, 90, 'Spain vs England', 'Lusail Iconic Stadium','Spain','England'),
+    (10012, '2023-06-12', '16:00:00', 'Quarterfinals', NULL, 5500, 90, 'Germany vs Argentina', 'Al-Rayyan Stadium','Germany','Argentina'),
+    (10013, '2023-06-13', '16:00:00', 'Semifinals', NULL, 9000, 90, 'France vs Spain', 'Lusail Iconic Stadium','France','Spain'),
+    (10014, '2023-06-14', '16:00:00', 'Semifinals', NULL, 8000, 90, 'Brazil vs Germany', 'Education City Stadium','Brazil','Germany'),
+    (10015, '2023-06-15', '16:00:00', 'Final', NULL, 1000, 90, 'France vs Brazil', 'Lusail Iconic Stadium','France','Brazil');
 
 INSERT INTO Match_Player (pid, identidier, attendance, entered_time, left_time, detailed_position_in_game, yellow_card_number, red_card_number)
 VALUES
